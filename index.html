@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Halcón Agroindustrial S.A.S. — Más de 30 años fabricando y comercializando insumos agrícolas premium para la nutrición vegetal y protección de cultivos en Colombia. Más de 700 puntos de venta a nivel nacional." />
+  <meta name="keywords" content="fertilizantes, insumos agrícolas, fungicidas, nutrición vegetal, Colombia, Chía, Cundinamarca, Halcón Agroindustrial" />
+  <meta property="og:title" content="Halcón Agroindustrial S.A.S. — Nutrición & Protección Vegetal" />
+  <meta property="og:description" content="+30 años fabricando insumos agrícolas de alta calidad. Cobertura nacional con más de 700 puntos de venta." />
+  <meta property="og:type" content="website" />
+  <title>Halcón Agroindustrial S.A.S. | Insumos Agrícolas Premium</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦅</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Custom cursor styles -->
+  <style>
+    #cursor-ring {
+      position: fixed;
+      top: -18px; left: -18px;
+      width: 36px; height: 36px;
+      border: 2px solid var(--lime-bright);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      mix-blend-mode: difference;
+      opacity: 0.9;
+    }
+    #cursor-dot {
+      position: fixed;
+      top: -4px; left: -4px;
+      width: 8px; height: 8px;
+      background: var(--lime-bright);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+    }
+    .nav-links a.active { color: var(--lime-bright) !important; }
+    .nav-links.nav-open {
+      display: flex !important;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      flex-direction: column;
+      background: rgba(13,34,17,0.97);
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      gap: 4px;
+      border-radius: 0 0 20px 20px;
+      border: 1px solid rgba(184,224,64,0.1);
+    }
+    .nav-mobile-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-mobile-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-mobile-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Navegación principal">
+  <div class="nav-pill">
+
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo" aria-label="Halcón Agroindustrial — Inicio">
+      <div class="nav-logo-icon" aria-hidden="true">🦅</div>
+      <div class="nav-logo-text">
+        <span class="brand">Halcón</span>
+        <span class="sub">Agroindustrial</span>
+      </div>
+    </a>
+
+    <!-- Links -->
+    <ul class="nav-links" role="list">
+      <li><a href="#about"    id="nav-about">Nosotros</a></li>
+      <li><a href="#products" id="nav-products">Productos</a></li>
+      <li><a href="#coverage" id="nav-coverage">Cobertura</a></li>
+      <li><a href="#crops"    id="nav-crops">Cultivos</a></li>
+      <li><a href="#contact"  id="nav-contact">Contacto</a></li>
+    </ul>
+
+    <!-- CTA + Mobile toggle -->
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="#contact" class="nav-cta" id="nav-cta-btn" aria-label="Contáctanos">
+        Contáctanos
+        <span class="nav-cta-icon" aria-hidden="true">↗</span>
+      </a>
+      <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO — CINEMATIC VIDEO (scrub-controlled by scroll)
+══════════════════════════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero cinematográfico">
+
+  <!-- Pinned viewport — what the user sees for the full 100vh scroll trip -->
+  <div class="hero-pin">
+
+    <!-- Video (controlado por scroll) -->
+    <div class="hero-video-wrap" aria-hidden="true">
+      <video
+        id="hero-video"
+        src="hero-scrub.mp4"
+        muted
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+      ></video>
+    </div>
+
+    <!-- Overlays -->
+    <div class="hero-overlay"  aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+
+    <!-- Main content -->
+    <div class="hero-content">
+      <div class="container">
+        <span class="hero-eyebrow">Soluciones Agroindustriales de Alta Calidad</span>
+
+        <h1 class="hero-title">
+          Nutrición &amp;<br />
+          <span class="italic-line">Protección Vegetal.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Más de 30 años fabricando insumos agrícolas de excelencia para
+          los agricultores colombianos. Tecnología al servicio del campo.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary" id="hero-btn-products" aria-label="Ver nuestros productos">
+            Nuestros Productos
+            <span class="btn-icon" aria-hidden="true">↗</span>
+          </a>
+          <a href="#about" class="btn btn-secondary" id="hero-btn-about" aria-label="Conocer la empresa">
+            Conoce la Empresa
+            <span class="btn-icon" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating stat card -->
+    <div class="hero-card" aria-label="Estadística destacada" role="complementary">
+      <p class="hero-card-label">Cobertura Nacional</p>
+      <div class="hero-card-stat">700<sup style="font-size:1.2rem">+</sup></div>
+      <p class="hero-card-desc">Puntos de venta a nivel<br/>nacional en Colombia</p>
+    </div>
+
+    <!-- Barra de progreso del video -->
+    <div class="hero-progress" aria-hidden="true">
+      <div class="hero-progress-fill" id="hero-progress-fill"></div>
+    </div>
+
+    <!-- Indicador de scroll -->
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-mouse">
+        <div class="scroll-mouse-dot"></div>
+      </div>
+      <span>Scroll para reproducir</span>
+    </div>
+
+    <!-- Fade-to-black — inside the pin so it travels with it -->
+    <div class="hero-fade" id="hero-fade" aria-hidden="true"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TRUSTED BY / MARQUEE
+══════════════════════════════════════════════════════════════ -->
+<section id="trusted" aria-label="Datos de confianza">
+  <p class="trusted-header">Líderes en el mercado agroindustrial colombiano</p>
+
+  <div class="marquee-track" aria-hidden="true">
+    <!-- Row 1 -->
+    <div class="marquee-row">
+      <div class="marquee-item">
+        <span class="marquee-item-icon">📍</span>
+        <div class="marquee-item-text">
+          <strong>700+</strong>
+          <span>Puntos de Venta</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🏆</span>
+        <div class="marquee-item-text">
+          <strong>+30</strong>
+          <span>Años de Trayectoria</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🌿</span>
+        <div class="marquee-item-text">
+          <strong>100%</strong>
+          <span>Cobertura Nacional</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🔬</span>
+        <div class="marquee-item-text">
+          <strong>I+D</strong>
+          <span>Innovación Continua</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">👨‍🌾</span>
+        <div class="marquee-item-text">
+          <strong>Equipo</strong>
+          <span>Técnico Especializado</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🌱</span>
+        <div class="marquee-item-text">
+          <strong>Sostenible</strong>
+          <span>Campo Responsable</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🇨🇴</span>
+        <div class="marquee-item-text">
+          <strong>Colombia</strong>
+          <span>Hecho con Orgullo</span>
+        </div>
+      </div>
+      <!-- Duplicated for seamless loop -->
+      <div class="marquee-item">
+        <span class="marquee-item-icon">📍</span>
+        <div class="marquee-item-text">
+          <strong>700+</strong>
+          <span>Puntos de Venta</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🏆</span>
+        <div class="marquee-item-text">
+          <strong>+30</strong>
+          <span>Años de Trayectoria</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🌿</span>
+        <div class="marquee-item-text">
+          <strong>100%</strong>
+          <span>Cobertura Nacional</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🔬</span>
+        <div class="marquee-item-text">
+          <strong>I+D</strong>
+          <span>Innovación Continua</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">👨‍🌾</span>
+        <div class="marquee-item-text">
+          <strong>Equipo</strong>
+          <span>Técnico Especializado</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🌱</span>
+        <div class="marquee-item-text">
+          <strong>Sostenible</strong>
+          <span>Campo Responsable</span>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-item-icon">🇨🇴</span>
+        <div class="marquee-item-text">
+          <strong>Colombia</strong>
+          <span>Hecho con Orgullo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════════════════════════ -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Left -->
+      <div class="about-left">
+        <span class="section-badge">Sobre Nosotros</span>
+        <h2 class="about-heading" id="about-heading">
+          Más de tres décadas<br/>
+          impulsando el <span class="italic-word">campo</span><br/>
+          colombiano.
+        </h2>
+        <div class="about-pills">
+          <span class="pill-tag">🌿 Fertilizantes Foliares</span>
+          <span class="pill-tag">🪨 Granulados de Lib. Lenta</span>
+          <span class="pill-tag">🛡️ Fungicidas Protectantes</span>
+          <span class="pill-tag">💧 Coadyuvantes de Aspersión</span>
+          <span class="pill-tag">🔬 Nutrición Vegetal</span>
+          <span class="pill-tag">🇨🇴 Fabricado en Colombia</span>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="about-right">
+        <p class="about-text">
+          Halcón Agroindustrial S.A.S. nació con la misión de revolucionar
+          la nutrición vegetal y protección de cultivos en Colombia. Con sede
+          en el Km 1.5 Vía Chía–Cajicá, Centro Empresarial Oxus, llevamos
+          más de 30 años desarrollando soluciones que maximizan el rendimiento
+          del campo colombiano.
+        </p>
+        <p class="about-text">
+          Nuestro equipo técnico-comercial especializado por tipo de cultivo
+          garantiza el acompañamiento correcto en cada etapa del proceso agrícola,
+          desde la selección del insumo hasta la aplicación en campo.
+        </p>
+
+        <div class="about-stats-row">
+          <div class="about-stat">
+            <div class="about-stat-num" data-count="30" data-suffix="+" id="stat-years">0+</div>
+            <div class="about-stat-label">Años en el mercado</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num" data-count="700" data-suffix="+" id="stat-stores">0+</div>
+            <div class="about-stat-label">Puntos de venta</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num" data-count="32" id="stat-depts">0</div>
+            <div class="about-stat-label">Departamentos cubiertos</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num" data-count="4" id="stat-lines">0</div>
+            <div class="about-stat-label">Líneas de producto</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PRODUCTS
+══════════════════════════════════════════════════════════════ -->
+<section id="products" aria-labelledby="products-heading">
+  <div class="container">
+
+    <div class="products-header">
+      <div>
+        <span class="section-badge">Línea de Productos</span>
+        <h2 class="products-title" id="products-heading">
+          Insumos de<br/>
+          <span class="italic-line">Alta Eficacia.</span>
+        </h2>
+      </div>
+      <a href="#contact" class="btn btn-primary" id="products-cta-btn" aria-label="Solicitar catálogo de productos">
+        Solicitar Catálogo
+        <span class="btn-icon" aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- Card 1: Fertilizante Foliar -->
+      <article class="product-card" id="product-foliar" aria-label="Halcón Foliar Plus">
+        <div class="product-card-img-placeholder" style="background:linear-gradient(135deg,#1a4a1f,#2d6b35);">🌿</div>
+        <div class="product-card-body">
+          <span class="product-card-tag tag-foliar">Foliar Líquido</span>
+          <h3 class="product-card-name">Halcón Foliar Plus</h3>
+          <p class="product-card-desc">Fertilizante foliar líquido de alta concentración con micronutrientes quelados. Máxima absorción y eficacia en aplicación.</p>
+        </div>
+        <div class="product-card-footer">
+          <span class="product-card-more">
+            Ver detalles <span aria-hidden="true">→</span>
+          </span>
+        </div>
+      </article>
+
+      <!-- Card 2: Granulado -->
+      <article class="product-card" id="product-granulado" aria-label="Slow-Release Gran">
+        <div class="product-card-img-placeholder" style="background:linear-gradient(135deg,#3a2800,#7a5a00);">🪨</div>
+        <div class="product-card-body">
+          <span class="product-card-tag tag-granulado">Granulado SRF</span>
+          <h3 class="product-card-name">Slow-Release Gran</h3>
+          <p class="product-card-desc">Fertilizante granulado de liberación lenta con tecnología de encapsulado polimérico. Nutrición sostenida por hasta 6 meses.</p>
+        </div>
+        <div class="product-card-footer">
+          <span class="product-card-more">Ver detalles <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <!-- Card 3: Fungicida -->
+      <article class="product-card" id="product-fungicida" aria-label="Shield Protect">
+        <div class="product-card-img-placeholder" style="background:linear-gradient(135deg,#00103a,#003080);">🛡️</div>
+        <div class="product-card-body">
+          <span class="product-card-tag tag-fungicida">Fungicida</span>
+          <h3 class="product-card-name">Shield Protect</h3>
+          <p class="product-card-desc">Fungicida protectante de amplio espectro. Actúa como barrera preventiva contra hongos fitopatógenos en cultivos comerciales.</p>
+        </div>
+        <div class="product-card-footer">
+          <span class="product-card-more">Ver detalles <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <!-- Card 4: Coadyuvante -->
+      <article class="product-card" id="product-coadyuvante" aria-label="AgroSpread Max">
+        <div class="product-card-img-placeholder" style="background:linear-gradient(135deg,#3a1200,#8a3800);">💧</div>
+        <div class="product-card-body">
+          <span class="product-card-tag tag-coadyuvante">Coadyuvante</span>
+          <h3 class="product-card-name">AgroSpread Max</h3>
+          <p class="product-card-desc">Coadyuvante de aspersión que mejora la cobertura, adhesión y penetración de agroquímicos, reduciendo deriva y desperdicio.</p>
+        </div>
+        <div class="product-card-footer">
+          <span class="product-card-more">Ver detalles <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     COVERAGE
+══════════════════════════════════════════════════════════════ -->
+<section id="coverage" aria-labelledby="coverage-heading">
+  <div class="container">
+    <div class="coverage-grid">
+
+      <!-- Left -->
+      <div class="coverage-left">
+        <span class="section-badge">Cobertura Nacional</span>
+        <h2 class="coverage-title" id="coverage-heading">
+          Presencia en todo<br/>
+          el territorio <span class="italic-word">colombiano.</span>
+        </h2>
+        <p class="coverage-desc">
+          Con más de 700 puntos de venta distribuidos en los 32 departamentos
+          del país, Halcón Agroindustrial garantiza que el agricultor siempre
+          tenga acceso al insumo correcto, en el momento correcto.
+        </p>
+
+        <div class="coverage-stats">
+          <div class="coverage-stat-bar">
+            <div class="coverage-stat-info">
+              <span class="coverage-stat-name">Región Andina</span>
+              <span class="coverage-stat-val">92%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" data-width="92%"></div></div>
+          </div>
+          <div class="coverage-stat-bar">
+            <div class="coverage-stat-info">
+              <span class="coverage-stat-name">Región Caribe</span>
+              <span class="coverage-stat-val">85%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" data-width="85%"></div></div>
+          </div>
+          <div class="coverage-stat-bar">
+            <div class="coverage-stat-info">
+              <span class="coverage-stat-name">Región Pacífica</span>
+              <span class="coverage-stat-val">78%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" data-width="78%"></div></div>
+          </div>
+          <div class="coverage-stat-bar">
+            <div class="coverage-stat-info">
+              <span class="coverage-stat-name">Llanos Orientales</span>
+              <span class="coverage-stat-val">70%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" data-width="70%"></div></div>
+          </div>
+          <div class="coverage-stat-bar">
+            <div class="coverage-stat-info">
+              <span class="coverage-stat-name">Amazonía & Orinoquía</span>
+              <span class="coverage-stat-val">55%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" data-width="55%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Colombia visual -->
+      <div class="coverage-right">
+        <div class="colombia-visual" aria-label="Mapa de cobertura Colombia">
+          <div class="map-bg">
+            <span aria-hidden="true" style="z-index:1;position:relative;">🗺️</span>
+
+            <!-- Decorative dots -->
+            <div aria-hidden="true" style="position:absolute;top:18%;left:32%;width:12px;height:12px;background:var(--lime-bright);border-radius:50%;box-shadow:0 0 12px var(--lime-bright);animation:pulse-dot 2.2s ease-in-out infinite;"></div>
+            <div aria-hidden="true" style="position:absolute;top:30%;left:52%;width:10px;height:10px;background:var(--lime-bright);border-radius:50%;box-shadow:0 0 10px var(--lime-bright);animation:pulse-dot 2.4s ease-in-out infinite 0.3s;"></div>
+            <div aria-hidden="true" style="position:absolute;top:50%;left:25%;width:8px;height:8px;background:var(--lime-bright);border-radius:50%;box-shadow:0 0 8px var(--lime-bright);animation:pulse-dot 2s ease-in-out infinite 0.6s;"></div>
+            <div aria-hidden="true" style="position:absolute;top:60%;left:55%;width:10px;height:10px;background:var(--lime-bright);border-radius:50%;box-shadow:0 0 10px var(--lime-bright);animation:pulse-dot 2.6s ease-in-out infinite 0.9s;"></div>
+            <div aria-hidden="true" style="position:absolute;top:22%;left:68%;width:8px;height:8px;background:var(--lime-bright);border-radius:50%;box-shadow:0 0 8px var(--lime-bright);animation:pulse-dot 2.1s ease-in-out infinite 1.2s;"></div>
+            <div aria-hidden="true" style="position:absolute;top:40%;left:40%;width:14px;height:14px;background:var(--lime-bright);border-radius:50%;box-shadow:0 0 16px var(--lime-bright);animation:pulse-dot 1.8s ease-in-out infinite 0.2s;border:2px solid white;"></div>
+
+            <!-- Stats overlay -->
+            <div class="map-stat-overlay">
+              <div class="map-mini-stat">
+                <strong>700+</strong>
+                <small>Puntos Venta</small>
+              </div>
+              <div class="map-mini-stat">
+                <strong>32</strong>
+                <small>Departamentos</small>
+              </div>
+              <div class="map-mini-stat">
+                <strong>30+</strong>
+                <small>Años Activos</small>
+              </div>
+              <div class="map-mini-stat">
+                <strong>4</strong>
+                <small>Líneas Producto</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     CROPS
+══════════════════════════════════════════════════════════════ -->
+<section id="crops" aria-labelledby="crops-heading">
+  <div class="container">
+
+    <div class="crops-header">
+      <span class="section-badge" style="background:var(--green-deep);color:var(--lime-bright);">Tipos de Cultivo</span>
+      <h2 class="crops-title" id="crops-heading">
+        Soluciones para <span class="italic-line">cada cultivo.</span>
+      </h2>
+      <p class="crops-desc">
+        Nuestro equipo técnico especializado por tipo de cultivo garantiza
+        la recomendación y dosis correcta para maximizar su rendimiento.
+      </p>
+    </div>
+
+    <div class="crops-grid">
+      <div class="crop-item" id="crop-cafe">
+        <span class="crop-emoji" aria-hidden="true">☕</span>
+        <span class="crop-name">Café</span>
+      </div>
+      <div class="crop-item" id="crop-flores">
+        <span class="crop-emoji" aria-hidden="true">🌸</span>
+        <span class="crop-name">Flores</span>
+      </div>
+      <div class="crop-item" id="crop-papa">
+        <span class="crop-emoji" aria-hidden="true">🥔</span>
+        <span class="crop-name">Papa</span>
+      </div>
+      <div class="crop-item" id="crop-arroz">
+        <span class="crop-emoji" aria-hidden="true">🌾</span>
+        <span class="crop-name">Arroz</span>
+      </div>
+      <div class="crop-item" id="crop-palma">
+        <span class="crop-emoji" aria-hidden="true">🌴</span>
+        <span class="crop-name">Palma de Aceite</span>
+      </div>
+      <div class="crop-item" id="crop-maiz">
+        <span class="crop-emoji" aria-hidden="true">🌽</span>
+        <span class="crop-name">Maíz</span>
+      </div>
+      <div class="crop-item" id="crop-banano">
+        <span class="crop-emoji" aria-hidden="true">🍌</span>
+        <span class="crop-name">Banano</span>
+      </div>
+      <div class="crop-item" id="crop-caña">
+        <span class="crop-emoji" aria-hidden="true">🎋</span>
+        <span class="crop-name">Caña de Azúcar</span>
+      </div>
+      <div class="crop-item" id="crop-tomate">
+        <span class="crop-emoji" aria-hidden="true">🍅</span>
+        <span class="crop-name">Tomate</span>
+      </div>
+      <div class="crop-item" id="crop-aguacate">
+        <span class="crop-emoji" aria-hidden="true">🥑</span>
+        <span class="crop-name">Aguacate</span>
+      </div>
+      <div class="crop-item" id="crop-soya">
+        <span class="crop-emoji" aria-hidden="true">🫘</span>
+        <span class="crop-name">Soya</span>
+      </div>
+      <div class="crop-item" id="crop-hortalizas">
+        <span class="crop-emoji" aria-hidden="true">🥬</span>
+        <span class="crop-name">Hortalizas</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left info -->
+      <div class="contact-left">
+        <span class="section-badge">Contáctenos</span>
+        <h2 class="contact-title" id="contact-heading">
+          Hablemos del<br/>
+          <span class="italic-line">futuro del campo.</span>
+        </h2>
+        <p class="contact-desc">
+          Nuestro equipo técnico-comercial está listo para asesorarle
+          en la selección del insumo correcto para su cultivo.
+          Ubíquenos en Chía, Cundinamarca.
+        </p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="contact-info-icon" aria-hidden="true">📍</div>
+            <div class="contact-info-text">
+              <strong>Ubicación</strong>
+              <p>Km 1.5 Vía Chía–Cajicá, Centro Empresarial Oxus,<br/>Chía, Cundinamarca, Colombia</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon" aria-hidden="true">📞</div>
+            <div class="contact-info-text">
+              <strong>Teléfono</strong>
+              <p>+57 (601) 000-0000</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon" aria-hidden="true">✉️</div>
+            <div class="contact-info-text">
+              <strong>Correo</strong>
+              <p>contacto@halconagroindustrial.com</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon" aria-hidden="true">🕐</div>
+            <div class="contact-info-text">
+              <strong>Horario de Atención</strong>
+              <p>Lunes a Viernes: 7:00 AM – 5:00 PM<br/>Sábados: 7:00 AM – 12:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form" id="contact-form" aria-label="Formulario de contacto" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-nombre">Nombre</label>
+            <input type="text" id="contact-nombre" name="nombre" placeholder="Su nombre" autocomplete="given-name" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-empresa">Empresa</label>
+            <input type="text" id="contact-empresa" name="empresa" placeholder="Nombre de empresa" autocomplete="organization" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-email">Correo Electrónico</label>
+            <input type="email" id="contact-email" name="email" placeholder="correo@ejemplo.com" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-telefono">Teléfono</label>
+            <input type="tel" id="contact-telefono" name="telefono" placeholder="+57 300 000 0000" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="contact-cultivo">Tipo de Cultivo</label>
+          <select id="contact-cultivo" name="cultivo">
+            <option value="" disabled selected>Seleccione su cultivo principal</option>
+            <option value="cafe">Café</option>
+            <option value="flores">Flores</option>
+            <option value="papa">Papa</option>
+            <option value="arroz">Arroz</option>
+            <option value="palma">Palma de Aceite</option>
+            <option value="maiz">Maíz</option>
+            <option value="banano">Banano</option>
+            <option value="caña">Caña de Azúcar</option>
+            <option value="tomate">Tomate</option>
+            <option value="aguacate">Aguacate</option>
+            <option value="soya">Soya</option>
+            <option value="hortalizas">Hortalizas</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="contact-mensaje">Mensaje</label>
+          <textarea id="contact-mensaje" name="mensaje" placeholder="Cuéntenos sobre su necesidad agrícola, área de cultivo, o producto de interés..." rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" id="contact-submit-btn" aria-label="Enviar mensaje">
+          Enviar Mensaje
+          <span class="btn-icon" aria-hidden="true">↗</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════ -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" aria-label="Halcón Agroindustrial — Inicio">
+          <div class="nav-logo-icon" aria-hidden="true">🦅</div>
+          <div class="nav-logo-text">
+            <span class="brand">Halcón</span>
+            <span class="sub">Agroindustrial</span>
+          </div>
+        </a>
+        <p class="footer-tagline">
+          Más de 30 años fabricando y comercializando insumos agrícolas
+          de alta calidad para el campo colombiano. Chía, Cundinamarca.
+        </p>
+        <div class="footer-socials" aria-label="Redes sociales">
+          <a href="#" class="social-btn" aria-label="Facebook" title="Facebook">f</a>
+          <a href="#" class="social-btn" aria-label="Instagram" title="Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a href="#" class="social-btn" aria-label="YouTube" title="YouTube">▶</a>
+          <a href="#" class="social-btn" aria-label="WhatsApp" title="WhatsApp">📱</a>
+        </div>
+      </div>
+
+      <!-- Links col 1 -->
+      <div>
+        <h3 class="footer-col-title">Empresa</h3>
+        <ul class="footer-links">
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#products">Productos</a></li>
+          <li><a href="#coverage">Cobertura</a></li>
+          <li><a href="#crops">Cultivos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Links col 2 -->
+      <div>
+        <h3 class="footer-col-title">Productos</h3>
+        <ul class="footer-links">
+          <li><a href="#products">Fertilizantes Foliares</a></li>
+          <li><a href="#products">Granulados SRF</a></li>
+          <li><a href="#products">Fungicidas</a></li>
+          <li><a href="#products">Coadyuvantes</a></li>
+          <li><a href="#contact">Catálogo</a></li>
+        </ul>
+      </div>
+
+      <!-- Links col 3 -->
+      <div>
+        <h3 class="footer-col-title">Contacto</h3>
+        <ul class="footer-links">
+          <li><a href="https://maps.google.com" target="_blank" rel="noopener">Km 1.5 Vía Chía–Cajicá</a></li>
+          <li><a href="https://maps.google.com" target="_blank" rel="noopener">Centro Empresarial Oxus</a></li>
+          <li><a href="https://maps.google.com" target="_blank" rel="noopener">Chía, Cundinamarca</a></li>
+          <li><a href="tel:+576010000000">+57 (601) 000-0000</a></li>
+          <li><a href="mailto:contacto@halconagroindustrial.com">Correo Electrónico</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        © 2026 Halcón Agroindustrial S.A.S. Todos los derechos reservados.
+      </p>
+      <nav class="footer-legal" aria-label="Políticas y legales">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">HABEAS DATA</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════ -->
+<!-- GSAP Core + Plugins -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+<!-- Main animations -->
+<script src="main.js"></script>
+
+</body>
+</html>
